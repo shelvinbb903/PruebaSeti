@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h2 class="modal-title m-0">Batalla Pokemon</h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-6" *ngFor="let item of pokemonSer.pokemonBattle">
+            <mat-card class="example-card">
+                <img mat-card-image [src]="item.image" width="100%"> 
+                <mat-card-header class="ps-4 pt-2 pb-2 pe-4">      
+                    <mat-card-title class="text-center">{{ item.name | titlecase }}</mat-card-title>
+                </mat-card-header>       
+            </mat-card>
+        </div>
+    </div>
+    <mat-progress-bar mode="indeterminate" *ngIf="showLoading"></mat-progress-bar>
+    
+    <table class="table table-striped table-bordered mt-2 mb-0">
+        <thead>
+            <tr>
+                <th scope="col" class="table-primary" *ngFor="let item of pokemonSer.pokemonBattle">TIPO {{ item.type | uppercase }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of resultSimulation">
+                <td [class]="item.classFirst || ''">{{ item.first }}</td>
+                <td [class]="item.classSecond || ''">{{ item.second }}</td>
+            </tr>
+            <tr *ngIf="resultSimulation[2].classFirst != resultSimulation[2].classSecond">
+                <td><strong>{{ resultSimulation[2].classFirst == '' ? 'GANADOR' : 'PERDEDOR' }}</strong></td>
+                <td><strong>{{ resultSimulation[2].classSecond == '' ? 'GANADOR' : 'PERDEDOR' }}</strong></td>
+            </tr>
+            <tr *ngIf="resultSimulation[2].classFirst == resultSimulation[2].classSecond">
+                <td colspan="2" class="text-center"><strong>EMPATE</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button mat-raised-button color="primary" (click)="closeModal()">Cerrar</button>
+</div>

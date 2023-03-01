@@ -1,0 +1,40 @@
+
+<div class="modal-header">
+    <mat-card-title class="text-center">{{ dataPokemon.name | titlecase }}</mat-card-title>
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+</div>
+<div class="modal-body p-0">
+    <mat-card class="example-card">
+        <img mat-card-image [src]="dataPokemon.image" width="100%">
+        <mat-card-content class="p-0">        
+          <ul class="list-group list-group-flush">
+
+            <li class="list-group-item p-0">
+              <div class="row m-0">
+                <div class="col-4 border data-item p-2 text-end">
+                  <strong>Tipo(s)</strong>
+                </div>
+                <div class="col-8 border p-2">
+                  {{ dataPokemon.type | titlecase }}
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item p-0">
+              <div class="row m-0">
+                <div class="col-4 border data-item p-2 text-end">
+                  <strong>Atributos</strong>
+                </div>
+                <div class="col-8 border p-2">
+                  <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let stat of dataPokemon.stats"><strong>{{ stat.stat.name }}:</strong> {{ stat.base_stat }}</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+          
+        </mat-card-content>
+    </mat-card>
+</div>

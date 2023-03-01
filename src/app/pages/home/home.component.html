@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<div class="container">   
+    <app-loading *ngIf="showLoading"></app-loading> 
+
+    <div class="row mt-4">
+
+        <div class="col-3 mb-4" *ngFor="let item of listMenu">
+
+            <mat-card class="example-card w-100" [ngClass]="{'pokemon-selected': item.selected}">
+                <mat-card-header class="ps-4 pt-2 pb-2 pe-4" (click)="toggleOption(item)">      
+                    <mat-card-title class="text-center">{{ item.name | titlecase }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="item.image" width="100%" (click)="toggleOption(item)">
+                <mat-card-content class="p-0" (click)="toggleOption(item)">        
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item p-0">
+                        <div class="row m-0">
+                            <div class="col-4 border data-item p-2 text-end">
+                                <strong>Tipo(s)</strong>
+                            </div>
+                            <div class="col-8 border p-2">
+                                {{ item.type | titlecase }}
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
+                    
+                </mat-card-content>
+                    
+                <div class="options-menu" *ngIf="item.showoptions">
+                    <div class="example-flex-container">
+                    <div class="example-button-container mt-2" (click)="openDataPokemon(item)">
+                        <button mat-fab color="primary">
+                        <mat-icon>zoom_in</mat-icon>            
+                        </button>
+                        
+                        <span class="m-2"><strong>Información</strong></span>
+                    </div>
+                    <div class="example-button-container mt-2" *ngIf="selectedPokemon != 2 || item.selected" (click)="selectPokemon(item)">
+                        <button mat-fab color="accent">
+                        <mat-icon>play_circle_outline</mat-icon>
+                        </button>
+                        <span class="m-2"><strong>{{ item.selected ? 'Cancelar' : 'Batalla'}}</strong></span>
+                    </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+
+    </div>
+
+
+    <div class="example-button-container mt-2 start-battle" (click)="startBattle()" *ngIf="selectedPokemon == 2">
+        <button mat-fab color="accent">
+            <mat-icon>play_circle_outline</mat-icon>
+        </button>
+        <span class="m-2"><strong>Iniciar Batalla</strong></span>
+    </div>
+
+
+
+</div>
+

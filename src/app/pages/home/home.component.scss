@@ -1,0 +1,44 @@
+.mat-mdc-card-header, .data-item {
+    background: #ffd700;
+    border-color: #E6C100;
+}
+.mat-mdc-card-header {
+    .mat-mdc-card-header-text {
+        width: 100% !important;
+    }
+}
+.options-menu {
+    position: absolute;
+    top: 25%;
+    right: 20%;
+
+}
+.mat-mdc-card {
+    cursor: pointer;
+    display:inline-block;
+    position:relative;
+}
+.example-button-container{
+    background: #FFFF;
+    border-radius: 25px;
+
+    span {
+        display: inline-flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        vertical-align: super;
+    }
+}
+
+.pokemon-selected {
+    border: 5px solid #82D957;
+    border-radius: 10px;
+}
+
+.start-battle {
+    position: fixed;
+    top: 0;
+    left: 40%;
+    cursor: pointer;
+}
