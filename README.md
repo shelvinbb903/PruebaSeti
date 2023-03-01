@@ -15,7 +15,3 @@ Este proyecto fue generado con las siguientes caracteristicas:
 - Despues de clonar el proyecto acceder a la carpeta con el comando `cd` desde una terminal de comandos.
 - Instalar las dependencias de node usa el comando `npm install`. Si ocurre un error agregar la opcion --force
 - Ejecutar comando `ng serve` para comenzar a realizar pruebas. Por defecto se usa la url `http://localhost:4200/`.
-
-## Dato Adicional
-
-- Los campos del formulario generado de manera dinamica, validan cuales campos son requeridos y cuales no, de acuerdo a los datos generados en el servicio rest local. Cada campo tiene a su izquierda un icono: si el icono tiene una estrella dentro, significa que es obligatorio. Si no tiene la estrella es opcional.
